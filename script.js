@@ -271,7 +271,7 @@ window.onload = function () {
     if (step === 4) {
       reveal();
       // เปลี่ยนไปยังหน้า index2.html
-      window.location.href = "/index1/index.html";
+      window.location.href = "/https://fajarpry13.github.io/abud/index1/index.html";
       return;
     }
     setTimeout(openBox, stepMinutes[step - 1]);

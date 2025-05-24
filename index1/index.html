@@ -15,41 +15,38 @@
 
 
 
-<audio id="linkmp3" src="https://fajarpry13.github.io/abud/index1/tuluus.mp3" preload="auto"></audio>
+ <audio id="linkmp3" src="https://fajarpry13.github.io/abud/index1/tuluus.mp3" preload="auto"></audio>
 
-<script>
-const audio = document.getElementById("linkmp3");
+  <!-- JavaScript: autoplay dan fallback -->
+  <script>
+    const audio = document.getElementById("linkmp3");
 
-// Coba langsung play saat load
-window.addEventListener("load", function () {
-  audio.play().then(() => {
-    console.log("✅ Audio berhasil diputar saat load");
-  }).catch((e) => {
-    console.warn("⚠️ Autoplay dicegah, menunggu interaksi pengguna...");
-  });
-});
+    window.addEventListener("load", function () {
+      audio.play().then(() => {
+        console.log("✅ Audio berhasil diputar saat load");
+      }).catch((e) => {
+        console.warn("⚠️ Autoplay dicegah, menunggu interaksi pengguna...");
+      });
+    });
 
-// Fungsi play jika autoplay dicegah
-function aktifkanAudio() {
-  audio.play().then(() => {
-    console.log("✅ Audio diputar setelah interaksi pengguna");
-  }).catch((e) => {
-    console.error("❌ Gagal memutar audio:", e);
-  });
+    function aktifkanAudio() {
+      audio.play().then(() => {
+        console.log("✅ Audio diputar setelah interaksi pengguna");
+      }).catch((e) => {
+        console.error("❌ Gagal memutar audio:", e);
+      });
 
-  // Hapus event listener setelah audio diputar
-  document.removeEventListener("click", aktifkanAudio);
-  document.removeEventListener("mousemove", aktifkanAudio);
-  document.removeEventListener("keydown", aktifkanAudio);
-  document.removeEventListener("touchstart", aktifkanAudio);
-}
+      document.removeEventListener("click", aktifkanAudio);
+      document.removeEventListener("mousemove", aktifkanAudio);
+      document.removeEventListener("keydown", aktifkanAudio);
+      document.removeEventListener("touchstart", aktifkanAudio);
+    }
 
-// Tambahkan berbagai jenis interaksi ringan
-document.addEventListener("click", aktifkanAudio);
-document.addEventListener("mousemove", aktifkanAudio);
-document.addEventListener("keydown", aktifkanAudio);
-document.addEventListener("touchstart", aktifkanAudio);
-</script>
+    document.addEventListener("click", aktifkanAudio);
+    document.addEventListener("mousemove", aktifkanAudio);
+    document.addEventListener("keydown", aktifkanAudio);
+    document.addEventListener("touchstart", aktifkanAudio);
+  </script>
 <body>
   
 <!-- partial:index.partial.html -->

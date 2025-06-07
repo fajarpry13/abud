@@ -17,25 +17,17 @@
 <body>
   
 <!-- partial:index.partial.html -->
- <audio id="linkmp3" src="https://fajarpry13.github.io/abud/tuluus.mp3" preload="auto" loop></audio>
+ <audio id="linkmp3" src="https://fajarpry13.github.io/abud/tuluus.mp3" preload="auto" autoplay muted loop></audio>
 
-  <script>
-    const audio = document.getElementById('linkmp3');
+<script>
+  // aktifkan suara saat user pertama kali tap di layar
+  document.addEventListener("click", function () {
+    const audio = document.getElementById("linkmp3");
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
+</script>
 
-    // Coba langsung putar
-    audio.play().then(() => {
-      console.log('Audio berhasil diputar otomatis.');
-    }).catch(() => {
-      // Jika autoplay gagal, tunggu interaksi user (klik atau sentuh di mana saja)
-      const tryPlay = () => {
-        audio.play();
-        document.body.removeEventListener('click', tryPlay);
-        document.body.removeEventListener('touchstart', tryPlay);
-      };
-      document.body.addEventListener('click', tryPlay);
-      document.body.addEventListener('touchstart', tryPlay);
-    });
-  </script>
 
 
 <body class="container">

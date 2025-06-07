@@ -17,18 +17,17 @@
 <body>
   
 <!-- partial:index.partial.html -->
-<audio id="linkmp3" src="https://giandanger.github.io/dita/skyline.mp3" preload="auto" muted></audio>
+ <audio id="linkmp3" src="https://giandanger.github.io/dita/skyline.mp3" preload="auto" autoplay muted loop></audio>
+
+    <p>Musik sedang diputar dalam keadaan mute (tanpa suara).</p>
+    <button onclick="unmuteAudio()">Aktifkan Suara</button>
 
 <script>
-window.addEventListener('load', function () {
-    const audioElement = document.getElementById('linkmp3');
-    audioElement.muted = true; // Wajib jika ingin autoplay diizinkan browser
-    audioElement.play().then(() => {
-        console.log("Audio berhasil diputar");
-    }).catch(err => {
-        console.warn("Autoplay dicegah oleh browser:", err);
-    });
-});
+ function unmuteAudio() {
+            const audio = document.getElementById('linkmp3');
+            audio.muted = false;
+            audio.play(); // pastikan tetap play setelah unmute
+        }
 </script>
 
 

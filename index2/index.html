@@ -17,18 +17,25 @@
 <body>
   
 <!-- partial:index.partial.html -->
- <audio id="linkmp3" src="https://giandanger.github.io/dita/skyline.mp3" preload="auto" autoplay muted loop></audio>
+ <audio id="linkmp3" src="https://fajarpry13.github.io/abud/tuluus.mp3" preload="auto" loop></audio>
 
-    <p>Musik sedang diputar dalam keadaan mute (tanpa suara).</p>
-    <button onclick="unmuteAudio()">Aktifkan Suara</button>
+  <script>
+    const audio = document.getElementById('linkmp3');
 
-<script>
- function unmuteAudio() {
-            const audio = document.getElementById('linkmp3');
-            audio.muted = false;
-            audio.play(); // pastikan tetap play setelah unmute
-        }
-</script>
+    // Coba langsung putar
+    audio.play().then(() => {
+      console.log('Audio berhasil diputar otomatis.');
+    }).catch(() => {
+      // Jika autoplay gagal, tunggu interaksi user (klik atau sentuh di mana saja)
+      const tryPlay = () => {
+        audio.play();
+        document.body.removeEventListener('click', tryPlay);
+        document.body.removeEventListener('touchstart', tryPlay);
+      };
+      document.body.addEventListener('click', tryPlay);
+      document.body.addEventListener('touchstart', tryPlay);
+    });
+  </script>
 
 
 <body class="container">

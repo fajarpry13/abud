@@ -17,14 +17,20 @@
 <body>
   
 <!-- partial:index.partial.html -->
-<audio id="linkmp3" src="https://giandanger.github.io/dita/skyline.mp3" preload="auto"></audio>
+<audio id="linkmp3" src="https://giandanger.github.io/dita/skyline.mp3" preload="auto" muted></audio>
 
 <script>
-audio = new Audio('' + linkmp3.src);
-
-
-
+window.addEventListener('load', function () {
+    const audioElement = document.getElementById('linkmp3');
+    audioElement.muted = true; // Wajib jika ingin autoplay diizinkan browser
+    audioElement.play().then(() => {
+        console.log("Audio berhasil diputar");
+    }).catch(err => {
+        console.warn("Autoplay dicegah oleh browser:", err);
+    });
+});
 </script>
+
 
 <body class="container">
   
